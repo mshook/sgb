@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2266cc"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cc3333"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="720" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" font-size="22" font-weight="bold" fill="#222">Hopcroft-Tarjan Biconnectivity Algorithm</text>
+  <text x="450" y="58" text-anchor="middle" font-size="13" fill="#666">Finding biconnected components and articulation points via DFS</text>
+
+  <!-- ============ PANEL 1: Original Graph ============ -->
+  <rect x="20" y="75" width="270" height="290" fill="#fff" stroke="#ddd" rx="6"/>
+  <text x="155" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">1. Original Graph</text>
+
+  <!-- Edges -->
+  <line x1="90"  y1="150" x2="210" y2="150" stroke="#aaa" stroke-width="2"/>
+  <line x1="90"  y1="150" x2="90"  y2="250" stroke="#aaa" stroke-width="2"/>
+  <line x1="210" y1="150" x2="210" y2="250" stroke="#aaa" stroke-width="2"/>
+  <line x1="90"  y1="250" x2="210" y2="250" stroke="#aaa" stroke-width="2"/>
+  <line x1="90"  y1="250" x2="210" y2="150" stroke="#aaa" stroke-width="2"/>
+  <line x1="210" y1="250" x2="210" y2="335" stroke="#aaa" stroke-width="2"/>
+  <line x1="210" y1="335" x2="130" y2="335" stroke="#aaa" stroke-width="2"/>
+
+  <!-- Vertices -->
+  <circle cx="90"  cy="150" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="90"  y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">A</text>
+  <circle cx="210" cy="150" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="210" y="155" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">B</text>
+  <circle cx="90"  cy="250" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="90"  y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">C</text>
+  <circle cx="210" cy="250" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="210" y="255" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">D</text>
+  <circle cx="210" cy="335" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="210" y="340" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">E</text>
+  <circle cx="130" cy="335" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="130" y="340" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">F</text>
+
+  <!-- ============ PANEL 2: DFS Tree ============ -->
+  <rect x="310" y="75" width="280" height="290" fill="#fff" stroke="#ddd" rx="6"/>
+  <text x="450" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">2. DFS Tree</text>
+
+  <!-- Tree edges (solid blue) -->
+  <line x1="380" y1="148" x2="380" y2="192" stroke="#2266cc" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="380" y1="218" x2="380" y2="262" stroke="#2266cc" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="398" y1="278" x2="488" y2="208" stroke="#2266cc" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="380" y1="288" x2="380" y2="322" stroke="#2266cc" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="370" y1="340" x2="340" y2="340" stroke="#2266cc" stroke-width="2.5"/>
+  <circle cx="330" cy="340" r="3" fill="#2266cc"/>
+
+  <!-- Back edge (dashed red): D -> A -->
+  <line x1="495" y1="188" x2="395" y2="138" stroke="#cc3333" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+
+  <!-- DFS rank labels -->
+  <text x="355" y="126" text-anchor="end" font-size="11" fill="#2266cc" font-style="italic">rank=1</text>
+  <text x="355" y="196" text-anchor="end" font-size="11" fill="#2266cc" font-style="italic">rank=2</text>
+  <text x="355" y="272" text-anchor="end" font-size="11" fill="#2266cc" font-style="italic">rank=3</text>
+  <text x="530" y="196" font-size="11" fill="#2266cc" font-style="italic">rank=4</text>
+  <text x="355" y="340" text-anchor="end" font-size="11" fill="#2266cc" font-style="italic">rank=5</text>
+  <text x="295" y="340" font-size="11" fill="#2266cc" font-style="italic">rank=6</text>
+
+  <!-- Vertices on DFS tree -->
+  <circle cx="380" cy="130" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="380" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">A</text>
+  <circle cx="380" cy="200" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="380" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">C</text>
+  <circle cx="380" cy="275" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="380" y="280" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">D</text>
+  <circle cx="505" cy="195" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="505" y="200" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">B</text>
+  <circle cx="380" cy="340" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="380" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">E</text>
+  <circle cx="310" cy="340" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="310" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">F</text>
+
+  <!-- Legend for Panel 2 -->
+  <line x1="325" y1="355" x2="355" y2="355" stroke="#2266cc" stroke-width="2.5"/>
+  <text x="360" y="359" font-size="11" fill="#2266cc">Tree edge</text>
+  <line x1="430" y1="355" x2="460" y2="355" stroke="#cc3333" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="465" y="359" font-size="11" fill="#cc3333">Back edge</text>
+
+  <!-- ============ PANEL 3: Low-point computation ============ -->
+  <rect x="610" y="75" width="270" height="290" fill="#fff" stroke="#ddd" rx="6"/>
+  <text x="745" y="100" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">3. Low-point (min)</text>
+
+  <!-- Same tree shape, but show min values -->
+  <line x1="700" y1="148" x2="700" y2="192" stroke="#2266cc" stroke-width="2"/>
+  <line x1="700" y1="218" x2="700" y2="252" stroke="#2266cc" stroke-width="2"/>
+  <line x1="718" y1="268" x2="798" y2="208" stroke="#2266cc" stroke-width="2"/>
+  <line x1="700" y1="282" x2="700" y2="312" stroke="#2266cc" stroke-width="2"/>
+  <line x1="688" y1="330" x2="658" y2="330" stroke="#2266cc" stroke-width="2"/>
+
+  <!-- Back edge D->A -->
+  <path d="M 810,188 Q 840,155 715,133" stroke="#cc3333" stroke-width="2" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow-red)"/>
+
+  <!-- Vertices with min annotations -->
+  <circle cx="700" cy="130" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="700" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">A</text>
+  <text   x="735" y="126" font-size="11" fill="#e67e22" font-weight="bold">min=dummy</text>
+
+  <circle cx="700" cy="200" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="700" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">C</text>
+  <text   x="665" y="200" text-anchor="end" font-size="11" fill="#e67e22" font-weight="bold">min=A</text>
+
+  <circle cx="700" cy="265" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="700" y="270" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">D</text>
+  <text   x="665" y="265" text-anchor="end" font-size="11" fill="#e67e22" font-weight="bold">min=A</text>
+
+  <circle cx="815" cy="195" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="815" y="200" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">B</text>
+  <text   x="847" y="195" font-size="11" fill="#e67e22" font-weight="bold">min=A</text>
+
+  <circle cx="700" cy="330" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="700" y="335" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">E</text>
+  <text   x="735" y="330" font-size="11" fill="#e67e22" font-weight="bold">min=D</text>
+
+  <circle cx="640" cy="330" r="18" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="640" y="335" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">F</text>
+  <text   x="620" y="320" text-anchor="end" font-size="11" fill="#e67e22" font-weight="bold">min=E</text>
+
+  <text x="745" y="358" text-anchor="middle" font-size="11" fill="#888">min = lowest ancestor reachable</text>
+
+  <!-- ============ PANEL 4: Result — biconnected components ============ -->
+  <rect x="20" y="390" width="860" height="310" fill="#fff" stroke="#ddd" rx="6"/>
+  <text x="450" y="418" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">4. Result: Biconnected Components &amp; Articulation Point</text>
+
+  <!-- Bicomponent 1 (green): A-B-C-D -->
+  <rect x="60" y="440" width="350" height="240" fill="#e8f5e9" stroke="#66bb6a" stroke-width="2" rx="12" stroke-dasharray="8,4"/>
+  <text x="235" y="468" text-anchor="middle" font-size="14" font-weight="bold" fill="#2e7d32">Bicomponent 1: {A, B, C, D}</text>
+
+  <!-- Edges in bicomp 1 -->
+  <line x1="140" y1="530" x2="280" y2="530" stroke="#66bb6a" stroke-width="2.5"/>
+  <line x1="140" y1="530" x2="140" y2="630" stroke="#66bb6a" stroke-width="2.5"/>
+  <line x1="280" y1="530" x2="280" y2="630" stroke="#66bb6a" stroke-width="2.5"/>
+  <line x1="140" y1="630" x2="280" y2="630" stroke="#66bb6a" stroke-width="2.5"/>
+  <line x1="140" y1="630" x2="280" y2="530" stroke="#66bb6a" stroke-width="2.5"/>
+
+  <circle cx="140" cy="530" r="20" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="140" y="535" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">A</text>
+  <circle cx="280" cy="530" r="20" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="280" y="535" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">B</text>
+  <circle cx="140" cy="630" r="20" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="140" y="635" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">C</text>
+
+  <!-- D is the articulation point — special styling -->
+  <circle cx="280" cy="630" r="20" fill="#ff7043" stroke="#d84315" stroke-width="3"/>
+  <text   x="280" y="635" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">D</text>
+  <text   x="280" y="665" text-anchor="middle" font-size="11" font-weight="bold" fill="#d84315">Articulation Point</text>
+
+  <!-- Bridge arrow between components -->
+  <line x1="305" y1="630" x2="520" y2="580" stroke="#888" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="415" y="592" text-anchor="middle" font-size="12" fill="#888" font-style="italic">shared vertex</text>
+
+  <!-- Bicomponent 2 (purple): D-E-F -->
+  <rect x="490" y="440" width="350" height="240" fill="#f3e5f5" stroke="#ab47bc" stroke-width="2" rx="12" stroke-dasharray="8,4"/>
+  <text x="665" y="468" text-anchor="middle" font-size="14" font-weight="bold" fill="#6a1b9a">Bicomponent 2: {D, E, F}</text>
+
+  <line x1="550" y1="570" x2="700" y2="570" stroke="#ab47bc" stroke-width="2.5"/>
+  <line x1="700" y1="570" x2="625" y2="650" stroke="#ab47bc" stroke-width="2.5"/>
+
+  <!-- D again in bicomp 2 -->
+  <circle cx="550" cy="570" r="20" fill="#ff7043" stroke="#d84315" stroke-width="3"/>
+  <text   x="550" y="575" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">D</text>
+
+  <circle cx="700" cy="570" r="20" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="700" y="575" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">E</text>
+  <circle cx="625" cy="650" r="20" fill="#4a90d9" stroke="#2a6ab9" stroke-width="2"/>
+  <text   x="625" y="655" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">F</text>
+
+  <!-- Key insight box -->
+  <rect x="490" y="440" width="350" height="0" fill="none"/>
+  <text x="665" y="500" text-anchor="middle" font-size="11" fill="#6a1b9a">Removing D disconnects the graph</text>
+
+  <!-- Algorithm summary at bottom -->
+  <text x="450" y="715" text-anchor="middle" font-size="12" fill="#999">
+    DFS assigns ranks; back edges define low-points (min); v is a bicomponent root when min(v) = parent(v)
+  </text>
+</svg>
