@@ -4,3 +4,17 @@
 *.o
 *.a
 certified
+
+# Compiled demo binaries
+assign_lisa
+book_components
+econ_order
+football
+girth
+ladders
+miles_span
+multiply
+queen
+roget_components
+take_risc
+word_components
