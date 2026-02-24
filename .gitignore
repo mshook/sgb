@@ -1,0 +1,6 @@
+# Build artifacts
+*.c
+*.h
+*.o
+*.a
+certified
