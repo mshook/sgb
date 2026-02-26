@@ -69,3 +69,21 @@ To use `PROTOTYPES/` patches on Unix: copy `.ch` files to the root directory —
 ### Known Non-Standard C
 
 The code intentionally uses non-ANSI pointer arithmetic (comparing/ordering pointers of unrelated origin). This is noted in the README and is by design. The `PROTOTYPES/` changefiles add function prototypes but do not fix the pointer issues.
+
+## GB_GATES and the RISC Machine
+
+`gb_gates.w` is one of the more analytically interesting modules. It produces directed acyclic graphs of logic gates representing two circuits: a parallel multiplier (`prod`) and a simple RISC processor (`risc`). The demo programs `TAKE_RISC` and `MULTIPLY` show how to use them.
+
+The `risc(regs)` function (2 ≤ regs ≤ 16) builds a gate-level netlist of a 16-bit processor with `1400 + 115*regs` gates. Key architectural facts established by reading the source:
+
+- **r0 is the program counter** — same design as DEC PDP-11 (r7=PC) and early ARM (r15=PC); control flow is just a register write; JUMP with DST≠0 saves a return address (like ARM `BL`)
+- **Read-only memory** — the machine cannot write to memory; this keeps the circuit a DAG (no feedback loops), making it theoretically a finite automaton rather than a von Neumann machine
+- **OP=0 general logical** — a 4-bit truth-table MOD field subsumes all two-input boolean ops in one instruction; the closest modern equivalent is Intel AVX-512 `VPTERNLOGD`
+- **No XOR gates** in the netlist — XOR is synthesized from AND/OR/NOT
+- Arc weights of 100 (gates) vs 1 (inverters) make shortest-path lengths in the graph meaningful as gate-delay estimates
+
+Full ISA reference: `RISC_DESCRIPTION.md`. Block diagram: `risc_architecture.svg`.
+
+## Session Notes
+
+Dated session summaries (conversation logs) are saved as `session-YYYY-MM-DD.md`.
