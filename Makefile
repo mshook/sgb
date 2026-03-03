@@ -26,11 +26,11 @@ BINDIR = /usr/local/bin
 CWEBINPUTS = /usr/local/lib/cweb
 
 #   SHORTCUT: Uncomment these lines, for single-directory installation:
-#DATADIR = .
-#INCLUDEDIR = .
-#LIBDIR = .
-#BINDIR = .
-#CWEBINPUTS = .
+DATADIR = .
+INCLUDEDIR = .
+LIBDIR = .
+BINDIR = .
+CWEBINPUTS = .
 
 #   Uncomment the next line if your C uses <string.h> but not <strings.h>:
 #SYS = -DSYSV
