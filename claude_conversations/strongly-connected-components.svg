@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="Georgia, serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a85d6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d4a020"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#43a047"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+    </marker>
+    <marker id="arrow-cond" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="480" fill="#faf8f5" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#2c2c2c">Strongly Connected Components</text>
+  <text x="400" y="60" text-anchor="middle" font-size="13" fill="#777">In a directed graph: within each SCC, every vertex can reach every other vertex following arrows.</text>
+
+  <!-- SCC 1 background (blue, left) -->
+  <ellipse cx="150" cy="220" rx="115" ry="120" fill="#dceefb" stroke="#8bbde0" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
+  <text x="150" y="355" text-anchor="middle" font-size="12" fill="#3a7abf" font-style="italic">SCC 1</text>
+
+  <!-- SCC 1 edges (cycle A→B→C→D→A plus A→C) -->
+  <line x1="120" y1="144" x2="178" y2="144" stroke="#5a8ad8" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="192" y1="158" x2="192" y2="270" stroke="#5a8ad8" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="180" y1="288" x2="120" y2="288" stroke="#5a8ad8" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <line x1="105" y1="274" x2="105" y2="160" stroke="#5a8ad8" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+  <!-- cross edge A→C -->
+  <line x1="118" y1="156" x2="180" y2="276" stroke="#5a8ad8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-blue)"/>
+
+  <!-- SCC 1 vertices -->
+  <circle cx="108" cy="145" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="108" y="150" text-anchor="middle" font-size="13" fill="white" font-weight="bold">A</text>
+  <circle cx="192" cy="145" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="192" y="150" text-anchor="middle" font-size="13" fill="white" font-weight="bold">B</text>
+  <circle cx="192" cy="288" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="192" y="293" text-anchor="middle" font-size="13" fill="white" font-weight="bold">C</text>
+  <circle cx="108" cy="288" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="108" y="293" text-anchor="middle" font-size="13" fill="white" font-weight="bold">D</text>
+
+  <!-- Cross-SCC edge: B → E (gray, one-way between components) -->
+  <line x1="208" y1="145" x2="344" y2="165" stroke="#888" stroke-width="2" marker-end="url(#arrow-gray)"/>
+
+  <!-- Cross-SCC edge: C → F -->
+  <line x1="208" y1="292" x2="344" y2="280" stroke="#888" stroke-width="2" marker-end="url(#arrow-gray)"/>
+
+  <!-- SCC 2 background (orange, middle) -->
+  <ellipse cx="420" cy="220" rx="110" ry="120" fill="#fef3e0" stroke="#f0cfA0" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
+  <text x="420" y="355" text-anchor="middle" font-size="12" fill="#b8860b" font-style="italic">SCC 2</text>
+
+  <!-- SCC 2 edges (E→F→G→E) -->
+  <line x1="375" y1="155" x2="458" y2="155" stroke="#d4a030" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+  <line x1="468" y1="170" x2="420" y2="272" stroke="#d4a030" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+  <line x1="408" y1="274" x2="358" y2="175" stroke="#d4a030" stroke-width="2.5" marker-end="url(#arrow-orange)"/>
+  <!-- also F→E back edge to make it strongly connected -->
+  <path d="M 462,172 Q 490,215 462,260 " stroke="#d4a030" stroke-width="1.5" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow-orange)"/>
+  <line x1="360" y1="175" x2="404" y2="273" stroke="#d4a030" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-orange)"/>
+
+  <!-- SCC 2 vertices -->
+  <circle cx="360" cy="160" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="360" y="165" text-anchor="middle" font-size="13" fill="white" font-weight="bold">E</text>
+  <circle cx="468" cy="160" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="468" y="165" text-anchor="middle" font-size="13" fill="white" font-weight="bold">F</text>
+  <circle cx="415" cy="285" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="415" y="290" text-anchor="middle" font-size="13" fill="white" font-weight="bold">G</text>
+
+  <!-- Cross-SCC edge: F → H -->
+  <line x1="484" y1="160" x2="594" y2="180" stroke="#888" stroke-width="2" marker-end="url(#arrow-gray)"/>
+
+  <!-- SCC 3 background (green, right) -->
+  <ellipse cx="660" cy="230" rx="100" ry="90" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.6"/>
+  <text x="660" y="335" text-anchor="middle" font-size="12" fill="#2e7d32" font-style="italic">SCC 3</text>
+
+  <!-- SCC 3 edges (H↔I) -->
+  <line x1="618" y1="195" x2="695" y2="258" stroke="#66bb6a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+  <line x1="700" y1="250" x2="625" y2="190" stroke="#66bb6a" stroke-width="2.5" marker-end="url(#arrow-green)"/>
+
+  <!-- SCC 3 vertices -->
+  <circle cx="610" cy="185" r="16" fill="#43a047" filter="url(#shadow)"/>
+  <text x="610" y="190" text-anchor="middle" font-size="13" fill="white" font-weight="bold">H</text>
+  <circle cx="710" cy="265" r="16" fill="#43a047" filter="url(#shadow)"/>
+  <text x="710" y="270" text-anchor="middle" font-size="13" fill="white" font-weight="bold">I</text>
+
+  <!-- Condensation DAG at bottom -->
+  <rect x="170" y="385" width="460" height="75" rx="8" fill="#f5f3f0" stroke="#ddd" stroke-width="1"/>
+  <text x="400" y="406" text-anchor="middle" font-size="13" font-weight="bold" fill="#444">Condensation (a DAG)</text>
+
+  <rect x="220" y="418" width="60" height="28" rx="6" fill="#4a85d6"/>
+  <text x="250" y="437" text-anchor="middle" font-size="11" fill="white" font-weight="bold">SCC 1</text>
+
+  <rect x="370" y="418" width="60" height="28" rx="6" fill="#d4a020"/>
+  <text x="400" y="437" text-anchor="middle" font-size="11" fill="white" font-weight="bold">SCC 2</text>
+
+  <rect x="520" y="418" width="60" height="28" rx="6" fill="#43a047"/>
+  <text x="550" y="437" text-anchor="middle" font-size="11" fill="white" font-weight="bold">SCC 3</text>
+
+  <line x1="280" y1="432" x2="365" y2="432" stroke="#555" stroke-width="2" marker-end="url(#arrow-cond)"/>
+  <line x1="430" y1="432" x2="515" y2="432" stroke="#555" stroke-width="2" marker-end="url(#arrow-cond)"/>
+</svg>

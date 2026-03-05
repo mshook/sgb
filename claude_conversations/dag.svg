@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Georgia, serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5a6a7a"/>
+    </marker>
+    <linearGradient id="levelGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eef2f7"/>
+      <stop offset="100%" stop-color="#dde4ee"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="#faf8f5" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#2c2c2c">Directed Acyclic Graph (DAG)</text>
+  <text x="400" y="60" text-anchor="middle" font-size="13" fill="#777">No cycles — edges only flow downward. A valid topological order is shown at left.</text>
+
+  <!-- Topological order labels on the left -->
+  <text x="42" y="125" text-anchor="middle" font-size="11" fill="#999">order 1</text>
+  <text x="42" y="205" text-anchor="middle" font-size="11" fill="#999">order 2</text>
+  <text x="42" y="300" text-anchor="middle" font-size="11" fill="#999">order 3</text>
+  <text x="42" y="395" text-anchor="middle" font-size="11" fill="#999">order 4</text>
+
+  <!-- Level bands -->
+  <rect x="80" y="95" width="680" height="50" rx="6" fill="url(#levelGrad)" opacity="0.4"/>
+  <rect x="80" y="180" width="680" height="50" rx="6" fill="url(#levelGrad)" opacity="0.3"/>
+  <rect x="80" y="270" width="680" height="50" rx="6" fill="url(#levelGrad)" opacity="0.4"/>
+  <rect x="80" y="365" width="680" height="50" rx="6" fill="url(#levelGrad)" opacity="0.3"/>
+
+  <!-- === EDGES (drawn first, under nodes) === -->
+
+  <!-- A (250,120) → C (200,200) -->
+  <line x1="242" y1="135" x2="210" y2="185" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- A (250,120) → D (350,200) -->
+  <line x1="258" y1="135" x2="340" y2="185" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- B (550,120) → D (350,200) -->
+  <line x1="538" y1="135" x2="362" y2="185" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- B (550,120) → E (550,200) -->
+  <line x1="550" y1="136" x2="550" y2="185" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- C (200,200) → F (250,295) -->
+  <line x1="208" y1="216" x2="242" y2="280" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- D (350,200) → F (250,295) -->
+  <line x1="340" y1="216" x2="262" y2="280" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- D (350,200) → G (450,295) -->
+  <line x1="360" y1="216" x2="440" y2="280" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- E (550,200) → G (450,295) -->
+  <line x1="540" y1="216" x2="462" y2="280" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- E (550,200) → H (620,295) -->
+  <line x1="558" y1="216" x2="612" y2="280" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- F (250,295) → I (350,390) -->
+  <line x1="258" y1="310" x2="340" y2="375" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- G (450,295) → I (350,390) -->
+  <line x1="440" y1="310" x2="362" y2="375" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- H (620,295) → J (550,390) -->
+  <line x1="612" y1="310" x2="560" y2="375" stroke="#5a6a7a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- === NODES === -->
+  <!-- Level 1: sources -->
+  <circle cx="250" cy="120" r="16" fill="#c0392b" filter="url(#shadow)"/>
+  <text x="250" y="125" text-anchor="middle" font-size="13" fill="white" font-weight="bold">A</text>
+
+  <circle cx="550" cy="120" r="16" fill="#c0392b" filter="url(#shadow)"/>
+  <text x="550" y="125" text-anchor="middle" font-size="13" fill="white" font-weight="bold">B</text>
+
+  <!-- Level 2 -->
+  <circle cx="200" cy="200" r="16" fill="#d4761a" filter="url(#shadow)"/>
+  <text x="200" y="205" text-anchor="middle" font-size="13" fill="white" font-weight="bold">C</text>
+
+  <circle cx="350" cy="200" r="16" fill="#d4761a" filter="url(#shadow)"/>
+  <text x="350" y="205" text-anchor="middle" font-size="13" fill="white" font-weight="bold">D</text>
+
+  <circle cx="550" cy="200" r="16" fill="#d4761a" filter="url(#shadow)"/>
+  <text x="550" y="205" text-anchor="middle" font-size="13" fill="white" font-weight="bold">E</text>
+
+  <!-- Level 3 -->
+  <circle cx="250" cy="295" r="16" fill="#2980b9" filter="url(#shadow)"/>
+  <text x="250" y="300" text-anchor="middle" font-size="13" fill="white" font-weight="bold">F</text>
+
+  <circle cx="450" cy="295" r="16" fill="#2980b9" filter="url(#shadow)"/>
+  <text x="450" y="300" text-anchor="middle" font-size="13" fill="white" font-weight="bold">G</text>
+
+  <circle cx="620" cy="295" r="16" fill="#2980b9" filter="url(#shadow)"/>
+  <text x="620" y="300" text-anchor="middle" font-size="13" fill="white" font-weight="bold">H</text>
+
+  <!-- Level 4: sinks -->
+  <circle cx="350" cy="390" r="16" fill="#27ae60" filter="url(#shadow)"/>
+  <text x="350" y="395" text-anchor="middle" font-size="13" fill="white" font-weight="bold">I</text>
+
+  <circle cx="550" cy="390" r="16" fill="#27ae60" filter="url(#shadow)"/>
+  <text x="550" y="395" text-anchor="middle" font-size="13" fill="white" font-weight="bold">J</text>
+
+  <!-- Annotations -->
+  <text x="180" y="90" font-size="11" fill="#c0392b" font-weight="bold">Sources (no incoming)</text>
+  <text x="145" y="427" font-size="11" fill="#27ae60" font-weight="bold">Sinks (no outgoing)</text>
+
+  <!-- Topological sort example -->
+  <rect x="170" y="452" width="460" height="35" rx="8" fill="#f5f3f0" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="474" font-size="12" fill="#555">One valid topological sort:</text>
+  <text x="395" y="474" font-size="13" fill="#333" font-weight="bold" font-family="monospace">A → B → C → D → E → F → G → H → I → J</text>
+</svg>

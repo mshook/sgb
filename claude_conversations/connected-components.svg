@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="Georgia, serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#faf8f5" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#2c2c2c">Connected Components</text>
+  <text x="400" y="60" text-anchor="middle" font-size="13" fill="#777">"You can't get there from here." — Each colored region is one component.</text>
+
+  <!-- Component 1 background -->
+  <ellipse cx="160" cy="230" rx="140" ry="140" fill="#e8f0fe" stroke="#b3cef7" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.7"/>
+  <text x="160" y="385" text-anchor="middle" font-size="13" fill="#3a6abf" font-style="italic">Component 1</text>
+
+  <!-- Component 1 edges -->
+  <line x1="110" y1="170" x2="200" y2="170" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="110" y1="170" x2="110" y2="270" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="200" y1="170" x2="200" y2="270" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="110" y1="270" x2="200" y2="270" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="200" y1="170" x2="160" y2="120" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="110" y1="270" x2="160" y2="320" stroke="#5a8ad8" stroke-width="2.5"/>
+  <line x1="200" y1="270" x2="160" y2="320" stroke="#5a8ad8" stroke-width="2.5"/>
+
+  <!-- Component 1 vertices -->
+  <circle cx="160" cy="120" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="160" y="125" text-anchor="middle" font-size="13" fill="white" font-weight="bold">A</text>
+  <circle cx="110" cy="170" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="110" y="175" text-anchor="middle" font-size="13" fill="white" font-weight="bold">B</text>
+  <circle cx="200" cy="170" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="200" y="175" text-anchor="middle" font-size="13" fill="white" font-weight="bold">C</text>
+  <circle cx="110" cy="270" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="110" y="275" text-anchor="middle" font-size="13" fill="white" font-weight="bold">D</text>
+  <circle cx="200" cy="270" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="200" y="275" text-anchor="middle" font-size="13" fill="white" font-weight="bold">E</text>
+  <circle cx="160" cy="320" r="16" fill="#4a85d6" filter="url(#shadow)"/>
+  <text x="160" y="325" text-anchor="middle" font-size="13" fill="white" font-weight="bold">F</text>
+
+  <!-- No-crossing zone -->
+  <text x="365" y="230" text-anchor="middle" font-size="28" fill="#ccc">✗</text>
+  <text x="365" y="255" text-anchor="middle" font-size="11" fill="#aaa">no edges</text>
+
+  <!-- Component 2 background -->
+  <ellipse cx="500" cy="180" rx="90" ry="100" fill="#fef3e0" stroke="#f0cfA0" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.7"/>
+  <text x="500" y="295" text-anchor="middle" font-size="13" fill="#b8860b" font-style="italic">Component 2</text>
+
+  <!-- Component 2 edges -->
+  <line x1="475" y1="130" x2="530" y2="130" stroke="#d4a030" stroke-width="2.5"/>
+  <line x1="475" y1="130" x2="500" y2="210" stroke="#d4a030" stroke-width="2.5"/>
+  <line x1="530" y1="130" x2="500" y2="210" stroke="#d4a030" stroke-width="2.5"/>
+
+  <!-- Component 2 vertices -->
+  <circle cx="475" cy="130" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="475" y="135" text-anchor="middle" font-size="13" fill="white" font-weight="bold">G</text>
+  <circle cx="530" cy="130" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="530" y="135" text-anchor="middle" font-size="13" fill="white" font-weight="bold">H</text>
+  <circle cx="500" cy="210" r="16" fill="#d4a020" filter="url(#shadow)"/>
+  <text x="500" y="215" text-anchor="middle" font-size="13" fill="white" font-weight="bold">I</text>
+
+  <!-- Component 3 background -->
+  <ellipse cx="690" cy="220" rx="80" ry="110" fill="#e8f5e9" stroke="#a5d6a7" stroke-width="1.5" stroke-dasharray="6 3" opacity="0.7"/>
+  <text x="690" y="345" text-anchor="middle" font-size="13" fill="#3a7d44" font-style="italic">Component 3</text>
+
+  <!-- Component 3 edges -->
+  <line x1="690" y1="150" x2="690" y2="220" stroke="#4caf50" stroke-width="2.5"/>
+  <line x1="690" y1="220" x2="690" y2="290" stroke="#4caf50" stroke-width="2.5"/>
+
+  <!-- Component 3 vertices -->
+  <circle cx="690" cy="150" r="16" fill="#43a047" filter="url(#shadow)"/>
+  <text x="690" y="155" text-anchor="middle" font-size="13" fill="white" font-weight="bold">J</text>
+  <circle cx="690" cy="220" r="16" fill="#43a047" filter="url(#shadow)"/>
+  <text x="690" y="225" text-anchor="middle" font-size="13" fill="white" font-weight="bold">K</text>
+  <circle cx="690" cy="290" r="16" fill="#43a047" filter="url(#shadow)"/>
+  <text x="690" y="295" text-anchor="middle" font-size="13" fill="white" font-weight="bold">L</text>
+</svg>
